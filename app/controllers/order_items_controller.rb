@@ -5,7 +5,24 @@ class OrderItemsController < ApplicationController
     @item = @order.order_items.new(item_params)
     @order.save
     session[:order_id] = @order.id
-    redirect_to products_path
+    if @order.save
+
+      respond_to do |format|
+        format.html {
+          flash[:notice] = "Item successfully added!"
+          redirect_to products_path }
+        format.js
+      end
+    else
+      @message = @item.errors.full_messages
+      respond_to do |format|
+        format.html {
+          flash[:notice] = @message
+          redirect_to products_path
+        }
+        format.js
+      end
+    end
   end
 
   def update
