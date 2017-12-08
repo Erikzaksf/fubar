@@ -1,9 +1,16 @@
 # README
 
-E-commerce site. Uses `bcrypt` and `materialize`. There's a seed file. Set up your own admin. If you have questions, I'll be in Bali with no email. Ask someone else.
+E-commerce site. Uses `bcrypt` and `materialize`.
+
 
 To set up:
 
-* `rake db:setup`
+* Clone the repository locally.
 
-* Sorry, didn't get around to tests. It mostly works. There might be a few bugs.
+* Delete the Gemfile.lock file.
+
+* `bundle install`  
+
+* `rails db:setup`
+
+* This is currently a refactoring and debugging of a project from a developer no longer with the project.
