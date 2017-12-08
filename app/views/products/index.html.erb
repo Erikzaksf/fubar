@@ -1,4 +1,5 @@
 <h3>Products</h3>
+<%= render "layouts/errors", :object => @order_item %>
 
 <div class="row">
   <div class="section">
@@ -9,10 +10,13 @@
       <p><%= number_to_currency product.price %></p>
       <%= form_for @order_item do |f| %>
         <%= f.hidden_field :product_id, value: product.id %>
-        <%= f.number_field :quantity, placeholder: "Oops, breaks if you don't add input!" %>
+        <%= f.number_field :quantity, placeholder: "Please enter a quantity" %>
         <span class="waves-effect waves-light btn"><%= f.submit "Add to cart" %></span>
+        <%= render "layouts/errors", :object => @order_item %>
+
       <% end %>
     </div>
   <% end %>
+
 </div>
 </div>
